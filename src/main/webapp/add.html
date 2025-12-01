@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+            width: 380px;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 12px;
+            display: block;
+            color: #444;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus {
+            border-color: #4facfe;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #4facfe;
+            border: none;
+            color: white;
+            margin-top: 20px;
+            font-size: 17px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00c6ff;
+        }
+
+        .btn-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #4facfe;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-link:hover {
+            background: #00c6ff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Add Book Details</h2>
+
+    <form action="add" method="post">
+
+        <label>Book ID</label>
+        <input type="number" name="id" placeholder="Enter Book ID" required>
+
+        <label>Book Name</label>
+        <input type="text" name="name" placeholder="Enter Book Name" required>
+
+        <label>Author</label>
+        <input type="text" name="author" placeholder="Enter Author Name" required>
+
+        <button type="submit" class="btn">Add Book</button>
+
+    </form>
+    <a href="index.jsp" class="btn-link">Back to Home!</a>
+
+
+
+</div>
+
+</body>
+</html>
+
