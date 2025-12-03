@@ -10,6 +10,7 @@ https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
 
         <class>entity.Book</class>
 
+
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Bookservlet?createDatabaseIfNotExist=true"/>
@@ -21,5 +22,8 @@ https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
             <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
+
+
+
 
 </persistence>

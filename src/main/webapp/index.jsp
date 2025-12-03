@@ -3,127 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Management System</title>
+    <title>Login | Book Management System</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
         body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
             background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: #fff;
-        }
-
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(5px);
-            position: sticky;
-            top: 0;
-        }
-
-        .navbar h1 {
-            margin: 0;
-            font-size: 26px;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ffd700;
-        }
-
-        /* Main Section */
-        .container {
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        .container h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        /* Buttons */
-        .btn-box {
+            height: 100vh;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 40px;
+            align-items: center;
         }
 
-        .btn {
-            padding: 15px 30px;
-            font-size: 20px;
-            border-radius: 12px;
-            text-decoration: none;
+        .container {
             background: #ffffff;
-            color: #2575fc;
-            font-weight: 600;
-            box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+            width: 380px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 26px;
+        }
+
+        .msg {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .msg.success { color: green; }
+        .msg.error { color: red; }
+
+        label {
+            font-size: 15px;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
             transition: 0.3s;
         }
 
-        .btn:hover {
-            background: #2575fc;
-            color: #fff;
-            transform: translateY(-4px);
-            box-shadow: 0px 12px 25px rgba(0,0,0,0.3);
+        input:focus {
+            border-color: #2575fc;
+            box-shadow: 0 0 8px rgba(37, 117, 252, 0.3);
         }
 
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            padding: 20px;
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2575fc;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
             font-size: 16px;
-            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #1e63d4;
+        }
+
+        .register-btn {
+            margin-top: 15px;
+            background: #6a11cb;
+        }
+
+        .register-btn:hover {
+            background: #580fa8;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .link a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 
 </head>
 <body>
 
-<!-- Navbar -->
-<div class="navbar">
-    <h1> Book Management System</h1>
-
-    <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Books</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </div>
-</div>
-
-<!-- Main Content -->
 <div class="container">
-    <h2>Choose an Operation</h2>
 
-    <div class="btn-box">
+    <h2> Login</h2>
 
-        <a href="add.html" class="btn"> Add Book</a>
-        <a href="get.html" class="btn"> Get Book</a>
-        <a href="update.html" class="btn"> Update Book</a>
-        <a href="delete.html" class="btn"> Delete Book</a>
-        <a href="getallbook.html" class="btn"> Get All Books</a>
+    <% if(request.getParameter("msg") != null){ %>
+    <p class="msg success"><%= request.getParameter("msg") %></p>
+    <% } %>
 
+    <% if(request.getParameter("error") != null){ %>
+    <p class="msg error"><%= request.getParameter("error") %></p>
+    <% } %>
+
+    <form action="login" method="post">
+        <label>Email</label>
+        <input type="text" name="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="link">
+        <p>Don't have an account?</p>
+        <a href="registration.jsp">
+            <button class="register-btn">Register Here</button>
+        </a>
     </div>
-</div>
 
-<footer>
-    © 2025 Book Management System | Developed by You
-</footer>
+</div>
 
 </body>
 </html>
