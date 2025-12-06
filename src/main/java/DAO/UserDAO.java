@@ -11,7 +11,6 @@ public class UserDAO {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("book-unit");
 
-    // REGISTER USER
     public boolean registerUser(User user) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -27,7 +26,6 @@ public class UserDAO {
         }
     }
 
-    // LOGIN USER
     public User login(String email, String password) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -44,5 +42,6 @@ public class UserDAO {
             em.close();
         }
     }
+
 }
 

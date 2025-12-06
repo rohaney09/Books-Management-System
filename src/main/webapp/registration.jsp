@@ -1,3 +1,13 @@
+
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0
+    response.setHeader("Expires", "0"); // Proxies
+%>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,6 +116,15 @@
             <input type="password" name="password" required>
         </div>
 
+        <div class="input-group">
+            <label>Role:</label>
+            <select name="role" required>
+                <option value="USER">User</option>
+                <option value="ADMIN">Admin</option>
+            </select>
+        </div>
+
+        
         <button type="submit" class="btn">Register</button>
     </form>
 

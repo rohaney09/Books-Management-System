@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
 import java.util.List;
 
 public class BookDAO {
-
+    //EntityManagerFactory emf = Persistence.createEntityManagerFactory("book-unit");
     public static void addBook(Book book)
     {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("book-unit");
@@ -41,7 +41,7 @@ public class BookDAO {
 
         try {
             tx.begin();
-            em.merge(book);   // Updates existing book (id required)
+            em.merge(book);
             tx.commit();
         } catch (Exception e) {
             if (tx.isActive()) {

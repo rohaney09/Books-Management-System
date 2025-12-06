@@ -1,3 +1,19 @@
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0
+    response.setHeader("Expires", "0"); // Proxies
+%>
+
+<%
+    if (session.getAttribute("user") == null) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,11 +106,11 @@
 <nav>
     <div class="logo">Book Management</div>
     <ul>
-        <li><a href="add.html">Add</a></li>
-        <li><a href="get.html">Get</a></li>
-        <li><a href="update.html">Update</a></li>
-        <li><a href="delete.html">Delete</a></li>
-        <li><a href="getALL.html">Get All</a></li>
+        <li><a href="add.jsp">Add</a></li>
+        <li><a href="get.jsp">Get</a></li>
+        <li><a href="update.jsp">Update</a></li>
+        <li><a href="deletef.jsp">Delete</a></li>
+        <li><a href="getALL.jsp">Get All</a></li>
     </ul>
 </nav>
 

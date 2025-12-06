@@ -8,7 +8,6 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-
 public class Login extends HttpServlet {
 
     @Override
@@ -24,9 +23,20 @@ public class Login extends HttpServlet {
         if (u != null) {
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
-            resp.sendRedirect("dashboard.html");
+            session.setAttribute("username", u.getName());
+           // session.setAttribute("user", u);  // Because you are checking "user" in dashboard
+           // resp.sendRedirect("dashboard.jsp");
+
+
+            if (u.getRole().equalsIgnoreCase("ADMIN")) {
+                resp.sendRedirect("dashboard.jsp");
+            } else {
+                resp.sendRedirect("getallbook.jsp");
+            }
+
         } else {
             resp.sendRedirect("index.jsp?error=Invalid Credentials");
         }
     }
 }
+

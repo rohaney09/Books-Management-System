@@ -8,7 +8,6 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet("/register")
 public class Registration extends HttpServlet {
 
     @Override
@@ -18,9 +17,11 @@ public class Registration extends HttpServlet {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
+        String role = req.getParameter("role");
 
         UserDAO dao = new UserDAO();
-        User user = new User(name, email, password);
+
+        User user = new User(name, email, password, role);
 
         boolean saved = dao.registerUser(user);
 
@@ -31,3 +32,4 @@ public class Registration extends HttpServlet {
         }
     }
 }
+

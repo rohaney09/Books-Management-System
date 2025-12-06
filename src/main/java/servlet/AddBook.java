@@ -12,7 +12,6 @@ import java.io.IOException;
 public class AddBook extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //  super.doPost(req, resp);
 
         Book book = new Book();
         book.setId(Integer.parseInt(req.getParameter("id")));
@@ -21,7 +20,7 @@ public class AddBook extends HttpServlet {
 
         BookDAO.addBook(book);
 
-       // resp.getWriter().write("<h1> Book added successfully!</h1>");
+        resp.sendRedirect("add.jsp?msg=AddedSuccessful");
 
     }
 }

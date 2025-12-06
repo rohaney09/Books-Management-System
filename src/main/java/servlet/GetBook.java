@@ -18,10 +18,10 @@ public class GetBook extends HttpServlet {
                 Integer.parseInt(req.getParameter("id"))
         );
 
-        //this will send to JSP as a request
+        //this will send to jsp as  request
         req.setAttribute("Book", book);
 
-        // navigate go to getall file
+        // navibate go to getall file
         req.getRequestDispatcher("getall.jsp").forward(req, resp);
 
 
@@ -97,7 +97,7 @@ public class GetBook extends HttpServlet {
 //
 //        resp.getWriter().println("<body>");
 //        resp.getWriter().println("<div class='card'>");
-//        resp.getWriter().println("<h2>📘 Book Details</h2>");
+//        resp.getWriter().println("<h2>Book Details</h2>");
 //
 //        resp.getWriter().println("<p class='info'><span class='label'>ID:</span> " + book.getId() + "</p>");
 //        resp.getWriter().println("<p class='info'><span class='label'>Name:</span> " + book.getName() + "</p>");
